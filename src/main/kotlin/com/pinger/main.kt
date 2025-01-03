@@ -1,6 +1,8 @@
 package com.pinger
 
+import com.pinger.service.PlayerJoinListener
 import com.pinger.service.PlayerPinger
+import com.pinger.service.PlayerQuitListener
 import com.pinger.utils.NatsConnection
 import com.pinger.utils.PluginLogger
 import org.bukkit.Bukkit
@@ -21,6 +23,9 @@ class Main : JavaPlugin() {
     Bukkit.getScheduler().runTaskAsynchronously(this, Runnable {
       playerPinger.processNatsMessages(subscription)
     })
+
+    server.pluginManager.registerEvents(PlayerQuitListener(), this)
+    server.pluginManager.registerEvents(PlayerJoinListener(), this)
   }
 
   override fun onDisable() {

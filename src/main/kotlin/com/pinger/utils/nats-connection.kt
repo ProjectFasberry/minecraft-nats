@@ -9,7 +9,8 @@ class NatsConnection {
   companion object {
     lateinit var natsConnection: Connection
 
-    const val statusSubject = "server.user.status"
+    const val userStatusSubject = "server.user.status"
+    const val userEventSubject = "server.user.event"
 
     private val dotenv = dotenv()
     private var natsToken = dotenv["NATS_AUTH_TOKEN"]
@@ -19,7 +20,7 @@ class NatsConnection {
     }
 
     fun subscribeToLogin(): Subscription {
-      return natsConnection.subscribe(statusSubject)
+      return natsConnection.subscribe(userStatusSubject)
     }
 
     fun closeConnection() {
