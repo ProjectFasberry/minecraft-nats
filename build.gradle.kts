@@ -2,7 +2,7 @@ plugins {
   kotlin("jvm") version "2.0.21"
 }
 
-group = "org.example"
+group = "org.fasberry"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -17,7 +17,6 @@ dependencies {
   compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
   implementation("io.nats:jnats:2.16.12")
   implementation("org.json:json:20210307")
-  implementation("io.github.cdimascio:dotenv-kotlin:6.5.0")
 }
 
 java {

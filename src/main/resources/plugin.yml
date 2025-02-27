@@ -1,5 +1,24 @@
-name: nats-bridge
+name: NatsBridge
 version: 1.0
-main: com.pinger.Main
+main: com.bridge.Main
 api-version: 1.20
 description: Bridge for Nats
+
+commands:
+  natsbridge:
+    description: Nats
+    usage: /natsbridge
+    permission: natsbridge.configuration
+    permission-message: Sorry! You don't have permission to execute that command.
+    aliases: [nb]
+
+  natsbridge reload:
+    description: Reload config
+    usage: /natsbridge reload
+    permission: natsbridge.configuration
+    permission-message: Sorry! You don't have permission to execute that command.
+
+permissions:
+  natsbridge.configuration:
+    description: Allows timed usage of the /regen command
+    default: op
